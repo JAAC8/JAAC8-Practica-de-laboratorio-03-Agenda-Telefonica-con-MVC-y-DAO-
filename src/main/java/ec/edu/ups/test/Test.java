@@ -38,7 +38,6 @@ public class Test {
         //if(){}
             boolean repetidor1=true;
             while(repetidor1){
-            
             }
     }
     
