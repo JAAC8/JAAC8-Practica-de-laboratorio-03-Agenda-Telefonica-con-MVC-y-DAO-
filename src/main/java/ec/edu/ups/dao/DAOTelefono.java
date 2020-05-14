@@ -11,4 +11,6 @@ package ec.edu.ups.dao;
  */
 public class DAOTelefono {
     
+    public DAOTelefono(){
+    }
 }
