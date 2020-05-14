@@ -27,16 +27,22 @@ public class Test {
         while(repetidor){
             int mP = vistaUsuario.menuPrincipal();
             switch(mP){
-             case 1:
-                    controladorUsuario.registrar();//VA EN CONTROLADOR CLIENTE
+                case 1:
+                    controladorUsuario.registrar();
                     break;
                 case 2:
+                    if(controladorUsuario.permisoDeIngreso()==true){
+                        //MENÚ DE USUARIO
+                        System.out.println("\n1.Resgistrar un nuevo COntacto"+"\n2.Buscar un contacto"+"\n3.Actualizar contacto"+"\n4.Actualizar contacto"+"\n5.Eliminar contacto"+"\n6.Imprimir Lista de contactos"+"\n7.Salir");
+                                
+                    }else{System.out.println("Ha ingresado los datos herroneos.");}
                     //booelan comprobacionDeIngreso= controladorUsuario.
                     //vista.inicioDeSesion(comprobacionDeIngreso);
                     break;
                 case 3:
+                    repetidor=false;
                     break;
-        }
+            }
         }
     }
 }

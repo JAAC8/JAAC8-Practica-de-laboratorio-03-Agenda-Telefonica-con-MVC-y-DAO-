@@ -18,7 +18,7 @@ public class VistaUsuario {
     public int menuPrincipal(){//COLOCAR EN TEST
         int option = 0;
         Scanner scan = new Scanner(System.in);
-        System.out.println("AGENDA TELEFÓNICA");
+        System.out.println("\nAGENDA TELEFÓNICA");
         boolean repetidor = true;
         //int option;
         while(repetidor){
@@ -51,11 +51,20 @@ public class VistaUsuario {
         return usuario;
     }
     //Inicio de Sesión
-    public boolean inicioDeSesion(boolean comprobacionDeIngreso){
-        if(comprobacionDeIngreso==false){
-            System.out.println("Ha ingreso los datos erroneos");
-        }
-        return comprobacionDeIngreso;
+    public String inicioDeSesionCorreo(){
+        Scanner scann = new Scanner(System.in);
+        System.out.println("INICIAR SESIÓN");
+        System.out.println("\nIngrese el Correo:");
+        String correo=scann.next();
+        
+        return correo;
+    }
+    public String inicioDeSesionContraseña(){
+        Scanner scann = new Scanner(System.in);
+        System.out.println("Ingrese su contraseña:");
+        String contraseña=scann.next();
+        
+        return contraseña;
     }
     
     

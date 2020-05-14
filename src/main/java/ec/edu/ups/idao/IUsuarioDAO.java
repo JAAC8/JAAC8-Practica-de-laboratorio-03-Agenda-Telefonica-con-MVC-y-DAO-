@@ -12,7 +12,7 @@ import ec.edu.ups.modelo.Usuario;
  */
 public interface IUsuarioDAO {
     public void create(Usuario user);
-    public Usuario read();
+    public Usuario read(String cedula);
     public void update(Usuario user);
     public void delte(Usuario user);
     

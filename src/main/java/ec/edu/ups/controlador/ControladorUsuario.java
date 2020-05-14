@@ -26,4 +26,15 @@ public class ControladorUsuario {
         Usuario user = vista.ingresoDeDatos();
         daoUser.create(user);
     }
+    
+    public boolean permisoDeIngreso(){
+        String correo = vista.inicioDeSesionCorreo();
+        String contrasena = vista.inicioDeSesionContraseña();
+        Object pasword = (Object)contrasena;
+        Object mail = (Object)correo;
+        if(daoUser.verificadorDeExistencia(mail, pasword)==true){
+            return true;
+        }
+        return false;
+    }
 }
