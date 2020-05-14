@@ -9,6 +9,6 @@ package ec.edu.ups.vista;
  *
  * @author José Andrés Abad
  */
-public class Vista {
+public class VistaTelefono {
     
 }

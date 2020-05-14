@@ -5,10 +5,15 @@
  */
 package ec.edu.ups.idao;
 
+import ec.edu.ups.modelo.Usuario;
 /**
  *
  * @author José Andrés Abad
  */
-public interface IDao {
+public interface IUsuarioDAO {
+    public void create(Usuario user);
+    public Usuario read();
+    public void update(Usuario user);
+    public void delte(Usuario user);
     
 }

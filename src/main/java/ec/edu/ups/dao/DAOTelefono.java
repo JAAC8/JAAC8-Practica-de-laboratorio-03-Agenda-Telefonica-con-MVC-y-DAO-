@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.edu.ups.vista;
+package ec.edu.ups.dao;
 
 /**
  *
  * @author José Andrés Abad
  */
-public class VistaTelefonos {
+public class DAOTelefono {
     
 }
