@@ -6,14 +6,19 @@
 package ec.edu.ups.idao;
 
 import ec.edu.ups.modelo.Usuario;
+
 /**
  *
  * @author José Andrés Abad
  */
 public interface IUsuarioDAO {
+
     public void create(Usuario user);
+
     public Usuario read(String cedula);
+
     public void update(Usuario user);
-    public void delte(Usuario user);
-    
+
+    public void delte(String corre, String contrasena);
+
 }

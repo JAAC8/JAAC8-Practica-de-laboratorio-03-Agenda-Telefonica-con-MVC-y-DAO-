@@ -14,22 +14,29 @@ import ec.edu.ups.modelo.Usuario;
  * @author José Andrés Abad
  */
 public class ControladorUsuario {
+
     private VistaUsuario vista;
     private DAOUsuario daoUser;
     
-    public ControladorUsuario(VistaUsuario vistaUsuario){
+    public ControladorUsuario(VistaUsuario vistaUsuario) {
         this.vista = new VistaUsuario();
-        this.daoUser=new DAOUsuario();
+        this.daoUser = new DAOUsuario();
     }
     
-    public void registrar(){
+    public void registrar() {
         Usuario user = vista.ingresoDeDatos();
         daoUser.create(user);
     }
     
-    public boolean permisoDeIngreso(){
+    public boolean permisoDeIngreso() {
         String correo = vista.inicioDeSesionCorreo();
         String contrasena = vista.inicioDeSesionContraseña();
         return daoUser.verificadorDeExistencia(correo, contrasena);
+    }
+    
+    public void eliminar() {
+        String eccrr = vista.solicitudCorreoEliminacionCuenta();
+        String eccts = vista.solicitudContrasenaEliminacionCuenta();
+        daoUser.delte(eccrr, eccts);
     }
 }
