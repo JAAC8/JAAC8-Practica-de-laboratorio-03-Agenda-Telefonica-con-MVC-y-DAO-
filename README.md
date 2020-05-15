@@ -7,6 +7,7 @@ La misma emplea el patrón de diseño Modelo Vista Controlador(MVC) y el patrón
 - IDE: NeatBEans 11.3
 
 # Descripción del desarrollo de la Práctica
+
 - Familiarización con lo temas a abordar: 
    1. Colecciones
    2. Diccionarios
@@ -18,5 +19,14 @@ La misma emplea el patrón de diseño Modelo Vista Controlador(MVC) y el patrón
 - Creación de las Interfaces "IUsuarioDAO" e "ITelefonoDAO".
 - Creación de las Clases "DAOUsuario" y "DAOTelefono. 
 - Implemetación de las interfaces mencionadas en las clases "DAOUsuario" y "DAOTelefono.
-# Resultados obtenidos en Consola
+
+# Conclusiones
+
+- El empleo de Diccionarios mejoró la estruxtura del Proyecto en lo que respecta a registros.
+- En base a que en esta Práctica aplicamos de manera diferente el paradima de MVC debido a la aplicación del DAO, las propiedades de la POO se evidencian mucho mejor en comparació a la última páctica.
+
+# Recomendaciones
+
+- 
+- Realizar ejercicios con Diccionarios precio a la práctica afianzaría la fluidez con la que se realizan los Proyectos.
 
