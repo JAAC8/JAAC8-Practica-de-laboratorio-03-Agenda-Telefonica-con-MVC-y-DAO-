@@ -12,9 +12,9 @@ import java.util.Map;
  * @author José Andrés Abad
  */
 public interface ITelefonoDAO {
-    public void crear();
-    public void read();
-    public void update();
-    public void delete();
+    public void create(Telefono contacto);
+    public  void read(Integer key);
+    public void update(Integer key, Telefono telefono);
+    public void delete(Integer key);
     public void findAll();
 }

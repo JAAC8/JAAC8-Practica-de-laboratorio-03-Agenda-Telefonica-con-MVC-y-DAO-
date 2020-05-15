@@ -9,7 +9,7 @@ import ec.edu.ups.controlador.ControladorTelefono;
 import ec.edu.ups.controlador.ControladorUsuario;
 import ec.edu.ups.vista.VistaUsuario;
 import ec.edu.ups.vista.VistaTelefono;
-
+import ec.edu.ups.modelo.Usuario;
 /**
  *
  * @author José Andrés Abad
@@ -41,15 +41,21 @@ public class Test {
                             switch (mU) {
                                 //Modificaciones de la Agenda
                                 case 1://Añadir Contacto
-
+                                    controladorTelefono.agregarContacto();
+                                    //controladorUsuario.vincularContactos();
+                                    
                                     break;
                                 case 2://Buscar Contacto
+                                    controladorTelefono.leer();
                                     break;
                                 case 3://Actualizar Contacto
+                                    controladorTelefono.actualizar();
                                     break;
-                                case 4://Eliminar Cuenta
+                                case 4://Eliminar Contacto
+                                    controladorTelefono.eleminar();
                                     break;
-                                case 5://Imprimir Lista de COntactos
+                                case 5://Imprimir Lista de Contactos
+                                    controladorTelefono.imprimirTodo();
                                     break;
                                 //Modificaciones de Perfil de Usuario
                                 case 6://Actualizar mi Perfil

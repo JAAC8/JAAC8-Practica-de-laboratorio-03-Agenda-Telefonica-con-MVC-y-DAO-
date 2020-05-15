@@ -51,5 +51,5 @@ public class ControladorUsuario {
         daoUser.read(cedula);
         
     }
-
+    //public void vincularContactos(){}
 }
