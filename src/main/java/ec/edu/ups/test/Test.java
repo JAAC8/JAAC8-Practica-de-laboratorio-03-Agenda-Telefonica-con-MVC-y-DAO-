@@ -31,13 +31,35 @@ public class Test {
                     controladorUsuario.registrar();
                     break;
                 case 2:
+                    boolean repetidor1=true;
                     if(controladorUsuario.permisoDeIngreso()==true){
+                    while(repetidor1){
+                        
                         //MENÚ DE USUARIO
-                        System.out.println("\n1.Resgistrar un nuevo COntacto"+"\n2.Buscar un contacto"+"\n3.Actualizar contacto"+"\n4.Actualizar contacto"+"\n5.Eliminar contacto"+"\n6.Imprimir Lista de contactos"+"\n7.Salir");
+                        int mU = vistaUsuario.menuUsuario();
+                        switch (mU){
+                            //Añadir Contacto
+                            case 1:
                                 
+                                break;
+                            case 2:
+                                break;
+                            case 3:
+                                break;
+                            case 4:
+                                break;
+                            case 5:
+                                break;
+                            case 6:
+                                break;
+                            case 7:
+                                
+                                break;
+                        }
+                                            
+                    }
                     }else{System.out.println("Ha ingresado los datos herroneos.");}
-                    //booelan comprobacionDeIngreso= controladorUsuario.
-                    //vista.inicioDeSesion(comprobacionDeIngreso);
+                    
                     break;
                 case 3:
                     repetidor=false;
