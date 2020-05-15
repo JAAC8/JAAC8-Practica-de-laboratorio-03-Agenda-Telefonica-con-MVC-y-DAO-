@@ -31,44 +31,45 @@ public class Test {
                 case 1:
                     controladorUsuario.registrar();
                     break;
-                case 2:
+                case 2://Acceso a mi Cuenta
                     boolean repetidor1 = true;
                     if (controladorUsuario.permisoDeIngreso() == true) {
-                        while (repetidor1) {
 
+                        while (repetidor1) {
                             //MENÚ DE USUARIO
                             int mU = vistaUsuario.menuUsuario();
                             switch (mU) {
-                                //Añadir Contacto
-                                case 1:
+                                //Modificaciones de la Agenda
+                                case 1://Añadir Contacto
 
                                     break;
-                                case 2:
+                                case 2://Buscar Contacto
                                     break;
-                                case 3:
+                                case 3://Actualizar Contacto
                                     break;
-                                case 4:
+                                case 4://Eliminar Cuenta
                                     break;
-                                case 5:
+                                case 5://Imprimir Lista de COntactos
                                     break;
-                                case 6:
-                                    break;
-                                case 7://Edición de perfil del usuario
+                                //Modificaciones de Perfil de Usuario
+                                case 6://Actualizar mi Perfil
                                     int eP = vistaUsuario.edicionPerfilUsuario();
                                     switch (eP) {
                                         case 1://Actualización de Usuario
-
+                                            controladorUsuario.actualizar();
                                             break;
                                         case 2://Eliminación de Usuario
                                             controladorUsuario.eliminar();
                                             break;
                                     }
                                     break;
+                                case 7://Imprimir Datos completos de Usuario
+                                    controladorUsuario.imprimirUsuario();
+                                    break;
                                 case 8:
                                     repetidor1 = false;
                                     break;
                             }
-
                         }
                     } else {
                         System.out.println("Ha ingresado los datos herroneos.");

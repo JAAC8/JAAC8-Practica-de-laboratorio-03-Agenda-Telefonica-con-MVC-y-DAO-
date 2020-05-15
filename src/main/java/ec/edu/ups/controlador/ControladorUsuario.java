@@ -17,26 +17,38 @@ public class ControladorUsuario {
 
     private VistaUsuario vista;
     private DAOUsuario daoUser;
-    
+
     public ControladorUsuario(VistaUsuario vistaUsuario) {
         this.vista = new VistaUsuario();
         this.daoUser = new DAOUsuario();
     }
-    
+
     public void registrar() {
         Usuario user = vista.ingresoDeDatos();
         daoUser.create(user);
     }
-    
+
     public boolean permisoDeIngreso() {
         String correo = vista.inicioDeSesionCorreo();
         String contrasena = vista.inicioDeSesionContraseña();
         return daoUser.verificadorDeExistencia(correo, contrasena);
     }
-    
+
     public void eliminar() {
-        String eccrr = vista.solicitudCorreoEliminacionCuenta();
         String eccts = vista.solicitudContrasenaEliminacionCuenta();
-        daoUser.delte(eccrr, eccts);
+        daoUser.delte(eccts);
     }
+
+    //ACTUALIZACIONES
+    public void actualizar() {
+        Usuario newUsuario = vista.solicitudDeActualizacion();
+        daoUser.update(newUsuario);
+    }
+
+    //Impresión de todos los datos de usuario
+    public void imprimirUsuario() {
+        String cedula = vista.read();
+        System.out.println(daoUser.read(cedula));
+    }
+
 }

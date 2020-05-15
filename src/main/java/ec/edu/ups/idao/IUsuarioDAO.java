@@ -17,8 +17,8 @@ public interface IUsuarioDAO {
 
     public Usuario read(String cedula);
 
-    public void update(Usuario user);
+    public void update(Usuario newUsuario);
 
-    public void delte(String corre, String contrasena);
+    public void delte(String contrasena);
 
 }
