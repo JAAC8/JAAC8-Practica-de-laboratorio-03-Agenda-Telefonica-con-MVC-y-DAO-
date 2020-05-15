@@ -10,10 +10,10 @@ import ec.edu.ups.modelo.Telefono;
  *
  * @author José Andrés Abad
  */
-public interface ITelefonoDAO {
-    public void create(Telefono contacto);
-    public  void read(Integer key);
-    public void update(Integer key, Telefono telefono);
-    public void delete(Integer key);
-    public void findAll();
+public interface IDAOTelefono {
+    
+    public void create(Telefono telefono);
+    public Telefono read(int codigo);
+    public Telefono update(Telefono telefono);
+    public Telefono delete(int codigo);
 }

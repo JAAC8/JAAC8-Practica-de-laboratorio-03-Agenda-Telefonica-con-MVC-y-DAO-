@@ -5,45 +5,51 @@
  */
 package ec.edu.ups.controlador;
 
-import ec.edu.ups.modelo.Telefono;
 import ec.edu.ups.vista.VistaTelefono;
-import ec.edu.ups.dao.DAOTelefono;
+import ec.edu.ups.dao.TelefonoDAO;
+import ec.edu.ups.modelo.Telefono;
 /**
  *
  * @author José Andrés Abad
  */
 public class ControladorTelefono {
     private VistaTelefono vistaTelefono;
-    private DAOTelefono dAOTelefono;
+    private TelefonoDAO telefonoDAO;
     
     public ControladorTelefono(VistaTelefono vistaTelefono){
-        this.vistaTelefono= new VistaTelefono();
-        this.dAOTelefono = new DAOTelefono();
+        this.vistaTelefono = vistaTelefono;
+        this.telefonoDAO = new TelefonoDAO();
     }
     
-    public void agregarContacto(){
-        Telefono telefono = vistaTelefono.agregarContacto();
-        dAOTelefono.create(telefono);
+    public Telefono registrar(){
+        Telefono telefono = vistaTelefono.registrarTelefono();
+        telefonoDAO.create(telefono);
+        return telefono;
+    }
+    
+    public void buscarContacto(){
+        int codigo = vistaTelefono.buscarContacto();
+        Telefono contacto = telefonoDAO.read(codigo);
         
+        System.out.println(contacto);
     }
     
-    public void leer(){
-        Integer key = vistaTelefono.leerContacto();
-        dAOTelefono.read(key);
+    public Telefono actualizar(){
+        
+        Telefono telefono = vistaTelefono.registrarTelefono();
+        Telefono telefonoActualizado = telefonoDAO.update(telefono);
+        
+        return telefonoActualizado;
     }
     
-    public void actualizar(){
-        Telefono telefono = vistaTelefono.actualizarContacto();
-        Integer key = vistaTelefono.keyDeActualizacion();
-        dAOTelefono.update(key, telefono);
+    public Telefono eliminar(){
+        int codigo = vistaTelefono.buscarContacto();
+        Telefono telefono = telefonoDAO.delete(codigo);
+        
+        return telefono;
     }
     
-    public void eleminar(){
-        Integer key = vistaTelefono.eliminar();
-        dAOTelefono.delete(key);
-    }
-    
-    public void imprimirTodo(){//
-        dAOTelefono.findAll();
+    public void listarContactos(){
+        telefonoDAO.findAll();
     }
 }

@@ -5,11 +5,12 @@
  */
 package ec.edu.ups.test;
 
-import ec.edu.ups.controlador.ControladorTelefono;
-import ec.edu.ups.controlador.ControladorUsuario;
+import ec.edu.ups.modelo.Telefono;
 import ec.edu.ups.vista.VistaUsuario;
 import ec.edu.ups.vista.VistaTelefono;
-import ec.edu.ups.modelo.Usuario;
+import ec.edu.ups.controlador.ControladorUsuario;
+import ec.edu.ups.controlador.ControladorTelefono;
+
 /**
  *
  * @author José Andrés Abad
@@ -23,69 +24,68 @@ public class Test {
         ControladorUsuario controladorUsuario = new ControladorUsuario(vistaUsuario);
         ControladorTelefono controladorTelefono = new ControladorTelefono(vistaTelefono);
 
+        System.out.println("Bienvenido! !!");
+
+        //
         boolean repetidor = true;
-        //Mantiene al usuario dentro del programa
+
         while (repetidor) {
-            int mP = vistaUsuario.menuPrincipal();
-            switch (mP) {
+
+            int elector = vistaUsuario.imprimirMenuInicio();
+            switch (elector) {
+                //REGISTRO
                 case 1:
                     controladorUsuario.registrar();
-                    break;
-                case 2://Acceso a mi Cuenta
-                    boolean repetidor1 = true;
-                    if (controladorUsuario.permisoDeIngreso() == true) {
 
+                    break;
+                //INICIO DE SESIÓN
+                case 2:
+                    if (controladorUsuario.verificarCredenciales()) {
+                        boolean repetidor1 = true;
+                        
                         while (repetidor1) {
-                            //MENÚ DE USUARIO
                             int mU = vistaUsuario.menuUsuario();
+
                             switch (mU) {
-                                //Modificaciones de la Agenda
-                                case 1://Añadir Contacto
-                                    controladorTelefono.agregarContacto();
-                                    //controladorUsuario.vincularContactos();
-                                    
+                                case 1://Agregar Contracto
+                                    Telefono telefono = controladorTelefono.registrar();
+                                    controladorUsuario.vincularContacto(telefono);
                                     break;
                                 case 2://Buscar Contacto
-                                    controladorTelefono.leer();
+                                    controladorUsuario.buscarContactoUsuario();
+                                    //controladorTelefono.buscarContacto();
                                     break;
                                 case 3://Actualizar Contacto
-                                    controladorTelefono.actualizar();
+                                    Telefono telefonoActualizado = controladorTelefono.actualizar();
+                                    controladorUsuario.actualizarContacto(telefonoActualizado);
                                     break;
                                 case 4://Eliminar Contacto
-                                    controladorTelefono.eleminar();
+                                    Telefono telefono1 = controladorTelefono.eliminar();
+                                    System.out.println(telefono1);
+                                    controladorUsuario.eliminarContacto(telefono1);
                                     break;
-                                case 5://Imprimir Lista de Contactos
-                                    controladorTelefono.imprimirTodo();
+                                case 5://Listar Contactos de Usuario
+                                    controladorUsuario.listarContactosUsuario();
                                     break;
-                                //Modificaciones de Perfil de Usuario
-                                case 6://Actualizar mi Perfil
-                                    int eP = vistaUsuario.edicionPerfilUsuario();
-                                    switch (eP) {
-                                        case 1://Actualización de Usuario
-                                            controladorUsuario.actualizar();
-                                            break;
-                                        case 2://Eliminación de Usuario
-                                            controladorUsuario.eliminar();
-                                            break;
-                                    }
+                                case 6://Listar COntactos de todas las cuentas
+                                    controladorTelefono.listarContactos();
                                     break;
-                                case 7://Imprimir Datos completos de Usuario
-                                    controladorUsuario.imprimirUsuario();
-                                    break;
-                                case 8:
+                                case 7://Salir
                                     repetidor1 = false;
                                     break;
+
                             }
                         }
-                    } else {
-                        System.out.println("Ha ingresado los datos herroneos.");
+
                     }
 
                     break;
-                case 3:
-                    repetidor = false;
-                    break;
+            }
+            //SALIR
+            if (elector == 3) {
+                break;
             }
         }
+
     }
 }

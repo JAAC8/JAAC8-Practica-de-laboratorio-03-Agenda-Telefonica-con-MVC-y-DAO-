@@ -6,50 +6,61 @@
 package ec.edu.ups.controlador;
 
 import ec.edu.ups.vista.VistaUsuario;
-import ec.edu.ups.dao.DAOUsuario;
+import ec.edu.ups.dao.UsuarioDAO;
 import ec.edu.ups.modelo.Usuario;
-
+import ec.edu.ups.modelo.Telefono;
 /**
  *
  * @author José Andrés Abad
  */
 public class ControladorUsuario {
-
-    private VistaUsuario vista;
-    private DAOUsuario daoUser;
-
-    public ControladorUsuario(VistaUsuario vistaUsuario) {
-        this.vista = new VistaUsuario();
-        this.daoUser = new DAOUsuario();
+    private VistaUsuario vistaUsuario;
+    private UsuarioDAO usuarioDAO;
+    
+    
+    public ControladorUsuario(VistaUsuario vistaUsuario){
+        this.vistaUsuario = vistaUsuario;
+        this.usuarioDAO = new UsuarioDAO();
     }
-
-    public void registrar() {
-        Usuario user = vista.ingresoDeDatos();
-        daoUser.create(user);
+    
+    public void registrar(){
+        Usuario usuario = vistaUsuario.registrarUsuario();
+        usuarioDAO.create(usuario);
     }
-
-    public boolean permisoDeIngreso() {
-        String correo = vista.inicioDeSesionCorreo();
-        String contrasena = vista.inicioDeSesionContraseña();
-        return daoUser.verificadorDeExistencia(correo, contrasena);
-    }
-
-    public void eliminar() {
-        String eccts = vista.solicitudContrasenaEliminacionCuenta();
-        daoUser.delte(eccts);
-    }
-
-    //ACTUALIZACIONES
-    public void actualizar() {
-        Usuario newUsuario = vista.solicitudDeActualizacion();
-        daoUser.update(newUsuario);
-    }
-
-    //Impresión de todos los datos de usuario
-    public void imprimirUsuario() {
-        String cedula = vista.read();
-        daoUser.read(cedula);
+    
+    public boolean verificarCredenciales(){
+        String correo = vistaUsuario.enviarCorreoIngresoControlador();
+        String contrasena = vistaUsuario.enviarContrasenaIngresoControlador();        
+        boolean verificador = usuarioDAO.verificarDatos(correo, contrasena);
         
+        return verificador;
     }
-    //public void vincularContactos(){}
+    
+    public void buscarContactoUsuario(){
+        String correo = vistaUsuario.enviarCorreoVinculacion();        
+        int codigo = vistaUsuario.ingresarCodigoContacto();
+        usuarioDAO.buscarContactoUsuario(codigo,correo);
+    }
+    
+    public void vincularContacto(Telefono telefono){
+        String correoUsuarioEnEjecucion = vistaUsuario.enviarCorreoVinculacion();
+        Telefono tele = telefono;
+        usuarioDAO.vincularTelefono(correoUsuarioEnEjecucion, tele);
+    }
+    
+    public void actualizarContacto(Telefono telefono){
+        String correoUsuarioEnEjecucion = vistaUsuario.actualizarContacto();        
+        usuarioDAO.actualizarContacto(correoUsuarioEnEjecucion, telefono);
+    }
+    
+    public void eliminarContacto(Telefono telefono){
+        String correoUsuarioEnEjecucion = vistaUsuario.enviarCorreoVinculacion();
+        usuarioDAO.deleteContacto(telefono,correoUsuarioEnEjecucion);
+                
+    }
+    public void listarContactosUsuario(){
+        String correo = vistaUsuario.enviarCorreoVinculacion();
+        usuarioDAO.listarContactos(correo);
+    }
+    
 }

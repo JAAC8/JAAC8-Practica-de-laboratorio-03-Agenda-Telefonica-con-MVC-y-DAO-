@@ -18,10 +18,10 @@ public class Telefono {
     public Telefono(){
     }
     public Telefono(int codigo, String numero, String tipo, String operadora){
-        this.codigo=codigo;
-        this.numero=numero;
-        this.tipo=tipo;
-        this.operadora=operadora;
+        this.codigo = codigo;
+        this.numero = numero;
+        this.tipo = tipo;
+        this.operadora = operadora;
     }
 
     public int getCodigo() {
@@ -50,9 +50,36 @@ public class Telefono {
     }
 
     @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 53 * hash + this.codigo;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Telefono other = (Telefono) obj;
+        if (this.codigo != other.codigo) {
+            return false;
+        }
+        return true;
+    }
+
+    
+    
+    @Override
     public String toString() {
-        return "    Telefono: " + "[código=" + codigo + ", número=" + numero + ", tipo=" + tipo + ", operadora=" + operadora + ']';
+        return "-Telefono:" + "\n[código=" + codigo + ", número=" + numero + ", tipo=" + tipo + ", operadora=" + operadora + ']';
     }
     
-    
+
 }

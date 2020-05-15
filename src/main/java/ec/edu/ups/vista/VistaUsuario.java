@@ -13,126 +13,100 @@ import ec.edu.ups.modelo.Usuario;
  * @author José Andrés Abad
  */
 public class VistaUsuario {
+    
+    private String correoUsuarioEnEJecucion; 
 
-    //Menú
-    public int menuPrincipal() {//COLOCAR EN TEST
-        int option = 0;
+    public int imprimirMenuInicio() {
         Scanner scan = new Scanner(System.in);
-        System.out.println("\nAGENDA TELEFÓNICA");
+
+        int elector = 0;
         boolean repetidor = true;
-        //int option;
+
         while (repetidor) {
-            System.out.println("\n1.Resgitrarse" + "\n2.Iniciar Sesión" + "\n3.Salir");
-            option = scan.nextInt();
-            if (option > 3 || option < 1) {
-                System.out.println("No ha seleccionado ninguno.");
-                repetidor = true;
+            System.out.println("\n    MENÚ" + "\n\n1.Registrarse" + "\n2.Iniciar sesión" + "\n3.Salir");
+
+            elector = scan.nextInt();
+            if (elector < 1 && elector > 3) {
+                System.out.println("NO HA ELEGIDO NINGUNO...");
             } else {
-                repetidor = false;
+                return elector;
             }
         }
-        return option;
+
+        return elector;
     }
 
-    //Resgistro
-    public Usuario ingresoDeDatos() {
+    public Usuario registrarUsuario() {
         Scanner scan = new Scanner(System.in);
+        Usuario usuario;
 
-        System.out.println("\nREGISTRO");
-        System.out.println("\nIngrese" + "\n-Cédula: ");
+        System.out.println("REGISTRO DE USUARIO");
+
+        System.out.println("Su Cédula:");
         String cedula = scan.next();
-        System.out.println("-Nombre:");
+        System.out.println("Su Nombre:");
         String nombre = scan.next();
-        System.out.println("-Apellido:");
+        System.out.println("Su Apellido:");
         String apellido = scan.next();
-        System.out.println("-Correo:");
+        System.out.println("Su correo:");
         String correo = scan.next();
-        System.out.println("-Contraseña:");
-        String contraseña = scan.next();
-        Usuario usuario = new Usuario(cedula, nombre, apellido, correo, contraseña);
+        System.out.println("Escriba su Contraseña:");
+        String contrasena = scan.next();
 
+        usuario = new Usuario(cedula, nombre, apellido, correo, contrasena);
         return usuario;
     }
 
-    //Inicio de Sesión
-    public String inicioDeSesionCorreo() {
-        Scanner scann = new Scanner(System.in);
-        System.out.println("\nINICIAR SESIÓN");
-        System.out.println("\nIngrese el Correo:");
-        String correo = scann.next();
-
-        return correo;
+    public String enviarCorreoIngresoControlador() {
+        Scanner scan = new Scanner(System.in);
+        
+        System.out.println("Su correo electrónico:");
+        this.correoUsuarioEnEJecucion = scan.next();
+        return correoUsuarioEnEJecucion;
     }
 
-    public String inicioDeSesionContraseña() {
-        Scanner scann = new Scanner(System.in);
-        System.out.println("Ingrese su Contraseña:");
-        String contraseña = scann.next();
-
-        return contraseña;
-    }
-
-    //Menú de Usuario
-    public int menuUsuario() {
-        Scanner scann = new Scanner(System.in);
-        int option = 0;
-        boolean repetidor = true;
-        while (repetidor) {
-            System.out.println("\n   MENÚ DE USUARIO" + "\n\n   Menú Agenda" + "\n1.Añadir Contacto" + "\n2.Buscar un Contacto" + "\n3.Actualizar Contacto" + "\n4.Eliminar Contacto" + "\n5.Imprimir Lista de Contactos" + "\n\n Configuraciones de Perfil" + "\n6.Editar mi Perfil" + "\n7.Imprimir Datos de Usuario" + "\n8.Salir");
-            option = scann.nextInt();
-            if (option > 8 || option < 1) {
-                System.out.println("No ha seleccionado ninguno.");
-                repetidor = true;
-            } else {
-                repetidor = false;
-            }
-        }
-        return option;
-    }
-
-    //Opciones de Edición de Perfil de Usuario
-    public int edicionPerfilUsuario() {
-        Scanner scann = new Scanner(System.in);
-        boolean repetidor = true;
-        int a = 0;
-        while (repetidor) {
-            System.out.println("\n1.Actualizar" + "\n2.Eliminar Cuenta");
-            a = scann.nextInt();
-            if (a < 1 || a > 2) {
-                System.out.println("No ha elegido ninguna opción");
-            } else {
-                repetidor = false;
-            }
-        }
-
-        return a;
-    }
-
-    //Solicitud de ELIMINACIÓN DE CUENTA
-    public String solicitudContrasenaEliminacionCuenta() {
-        Scanner scann = new Scanner(System.in);
-        System.out.println("Ingrese Contraseña para Confirmación:");
-        String contrasena = scann.next();
-
+    public String enviarContrasenaIngresoControlador() {
+        Scanner scan = new Scanner(System.in);
+        
+        System.out.println("Su contraseña:");
+        String contrasena = scan.next();
         return contrasena;
     }
 
-    //ACTUALIZACIÓN DE CUENTA
-    public Usuario solicitudDeActualizacion() {
-        Scanner scann = new Scanner(System.in);
-        System.out.println("\nACTUALIZACIÓN" + "Nota: a continuación ingrese sus nuevos datos:");
-        Usuario actualizado = ingresoDeDatos();
+    public int menuUsuario() {
+        Scanner scan = new Scanner(System.in);
+        int elector = 0;
+        boolean repetidor = true;
+        System.out.println("\nHola !");
 
-        return actualizado;
+        while (repetidor) {
+            System.out.println("\n  MENÚ DE USUARIO" + "\n\n1.Agregar contacto" + "\n2.Buscar Contacto" + "\n3.Actualizar Contacto" + "\n4.Eliminar Contacto" + "\n5.Listar Contactos de Usuario"+"\n6.Listar Contactos de todas las Cuentas" + "\n7.Salir");
+            elector = scan.nextInt();
+
+            if (elector < 1 || elector > 7) {
+                System.out.println("NO HA ELEGIDO NINGUNO...");
+            } else {
+                return elector;
+            }
+        }
+        return elector;
+    }
+    
+    public String enviarCorreoVinculacion(){
+        return this.correoUsuarioEnEJecucion;
     }
 
-    //IMPRIMIR TODOS LOS DATOS DE USUARIO
-    public String read() {
-        Scanner scann = new Scanner(System.in);
-        System.out.println("Ingrese su cedula:");
-        String cedu = scann.next();
-
-        return cedu;
+    public String actualizarContacto(){
+        Scanner scan = new Scanner(System.in);
+        
+        return correoUsuarioEnEJecucion;
     }
-
+    
+    public int ingresarCodigoContacto(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Código de contacto:");
+        int codigo = scan.nextInt();
+        
+        return codigo;
+    }
 }
