@@ -7,4 +7,16 @@ La misma emplea el patrón de diseño Modelo Vista Controlador(MVC) y el patrón
 - IDE: NeatBEans 11.3
 
 # Descripción del desarrollo de la Práctica
+- Familiarización con lo temas a abordar: 
+   1. Colecciones
+   2. Diccionarios
+   3. Patrones de Diseño de Software Modelo Vista COntrolador(MVC) y Objeto de Acceso de Datos(DAO)
+- Planteamiento del gdiagrama(UML).
+- Generación de paquetes en base a los requerimientos de los paradigmas de programación empleados.
+- Programación de las Clases Usuario y Teléfono.
+- Generación del Controlador para Usuario y otro para Teléfono.
+- Creación de las Interfaces "IUsuarioDAO" e "ITelefonoDAO".
+- Creación de las Clases "DAOUsuario" y "DAOTelefono. 
+- Implemetación de las interfaces mencionadas en las clases "DAOUsuario" y "DAOTelefono.
 # Resultados obtenidos en Consola
+
