@@ -21,7 +21,7 @@ public class DAOTelefono implements ITelefonoDAO{
     private Integer cont;
     public DAOTelefono(){
         mapTelefono=new TreeMap<Integer,Telefono>();
-        cont=0;
+        cont=1;
     }
     
     @Override
@@ -32,7 +32,7 @@ public class DAOTelefono implements ITelefonoDAO{
     @Override
     public  void read(Integer key){//
         Telefono tel = mapTelefono.get(key);
-        System.out.println("tel");
+        System.out.println(tel);
     }
     @Override
     public void update(Integer key, Telefono telefono){//
@@ -50,5 +50,6 @@ public class DAOTelefono implements ITelefonoDAO{
             Integer Key = (Integer) it.next();
             System.out.println("Clave: "+Key+"  -> Valor: "+mapTelefono.get(Key));
         }
+        //if(mapTelefono==null){System.out.println("Agenda Vacía."+"\nHora de agregar Contactos! !!");}
     }
 }

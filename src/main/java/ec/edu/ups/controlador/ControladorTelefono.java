@@ -17,7 +17,8 @@ public class ControladorTelefono {
     private DAOTelefono dAOTelefono;
     
     public ControladorTelefono(VistaTelefono vistaTelefono){
-        this.vistaTelefono= vistaTelefono;
+        this.vistaTelefono= new VistaTelefono();
+        this.dAOTelefono = new DAOTelefono();
     }
     
     public void agregarContacto(){
