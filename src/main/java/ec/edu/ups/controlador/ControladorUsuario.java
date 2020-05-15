@@ -48,7 +48,8 @@ public class ControladorUsuario {
     //Impresión de todos los datos de usuario
     public void imprimirUsuario() {
         String cedula = vista.read();
-        System.out.println(daoUser.read(cedula));
+        daoUser.read(cedula);
+        
     }
 
 }

@@ -5,10 +5,16 @@
  */
 package ec.edu.ups.vista;
 
+import java.util.Scanner;
+import ec.edu.ups.modelo.Telefono;
+
 /**
  *
  * @author José Andrés Abad
  */
 public class VistaTelefono {
     
+    public void agregarTelefono(){
+        
+    }
 }

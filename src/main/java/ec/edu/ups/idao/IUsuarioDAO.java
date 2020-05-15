@@ -15,7 +15,7 @@ public interface IUsuarioDAO {
 
     public void create(Usuario user);
 
-    public Usuario read(String cedula);
+    public void read(String cedula);
 
     public void update(Usuario newUsuario);
 
