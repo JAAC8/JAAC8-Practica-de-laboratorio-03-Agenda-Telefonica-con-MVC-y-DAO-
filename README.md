@@ -20,6 +20,8 @@ La misma emplea el patrón de diseño Modelo Vista Controlador(MVC) y el patrón
 - Creación de las Clases "DAOUsuario" y "DAOTelefono. 
 - Implemetación de las interfaces mencionadas en las clases "DAOUsuario" y "DAOTelefono.
 
+# Resultados Obtenidos
+
 # Conclusiones
 
 - El empleo de Diccionarios mejoró la estruxtura del Proyecto en lo que respecta a registros.
@@ -27,6 +29,5 @@ La misma emplea el patrón de diseño Modelo Vista Controlador(MVC) y el patrón
 
 # Recomendaciones
 
-- 
-- Realizar ejercicios con Diccionarios precio a la práctica afianzaría la fluidez con la que se realizan los Proyectos.
+- Realizar ejercicios con Diccionarios previo a la práctica afianzaría la fluidez con la que se realizan los Proyectos.
 
