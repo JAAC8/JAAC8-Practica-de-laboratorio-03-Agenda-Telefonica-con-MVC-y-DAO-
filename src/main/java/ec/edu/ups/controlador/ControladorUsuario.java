@@ -30,11 +30,6 @@ public class ControladorUsuario {
     public boolean permisoDeIngreso(){
         String correo = vista.inicioDeSesionCorreo();
         String contrasena = vista.inicioDeSesionContraseña();
-        Object pasword = (Object)contrasena;
-        Object mail = (Object)correo;
-        if(daoUser.verificadorDeExistencia(mail, pasword)==true){
-            return true;
-        }
-        return false;
+        return daoUser.verificadorDeExistencia(correo, contrasena);
     }
 }

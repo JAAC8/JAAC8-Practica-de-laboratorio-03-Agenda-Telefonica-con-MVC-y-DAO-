@@ -68,41 +68,12 @@ public class Usuario {
         telefonos.add(telfono);
     }
     
-    //INCORPORAR EQUALS Y HASHCODE (PARA CONTRASEÑA Y CORREO)<<<<----------!!!!!
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 61 * hash + Objects.hashCode(this.correo);
-        hash = 61 * hash + Objects.hashCode(this.contrasena);
-        return hash;
-    }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Usuario other = (Usuario) obj;
-        if (!Objects.equals(this.correo, other.correo)) {
-            return false;
-        }
-        if (!Objects.equals(this.contrasena, other.contrasena)) {
-            return false;
-        }
-        return true;
-    }
-    
     
     @Override
     public String toString() {
-        return "Usuario:"+"\n[cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", contrasena=" + contrasena + ']'+telefonos;
+        return "Usuario:"+"\n[cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", contrasena=" + contrasena + ']'+"\n"+telefonos;
     }
     
 }

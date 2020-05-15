@@ -66,7 +66,21 @@ public class VistaUsuario {
         
         return contraseña;
     }
-    
+    //Menú de Usuario
+    public int menuUsuario(){
+        Scanner scann = new Scanner(System.in);
+        int option=0;
+        boolean repetidor = true;        
+        while(repetidor){
+            System.out.println("\n1.Añadir Contacto"+"\n2.Buscar un Contacto"+"\n3.Actualizar Contacto"+"\n4.Actualizar Contacto"+"\n5.Eliminar Contacto"+"\n6.Imprimir Lista de Contactos"+"\n7.Salir");
+            option=scann.nextInt();
+            if(option>7||option<1){
+                System.out.println("No ha seleccionado ninguno.");
+                repetidor=true;
+            }else{repetidor=false;}
+        }
+        return option;
+    }
     
     
     
